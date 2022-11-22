@@ -1,0 +1,84 @@
+/*======================================*/
+/*リセット*/
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+p,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    text-rendering: auto;
+    position: relative;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: bottom;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active, a:focus {
+    color: #222222;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.main {
+    margin: auto;
+}
+
+.screen-reader-text{
+    display:none;
+  }
+  
+/* iOSでのデフォルトスタイルをリセット */
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0 !important;
+  -webkit-box-sizing: content-box !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  border: none !important;
+  box-sizing: border-box !important;
+  cursor: pointer;
+}
+input[type="submit"]::-webkit-search-decoration,
+input[type="button"]::-webkit-search-decoration {
+  display: none !important;
+}
+input[type="submit"]::focus,
+input[type="button"]::focus {
+  outline-offset: -2px !important;
+}
