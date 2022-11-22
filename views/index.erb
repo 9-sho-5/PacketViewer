@@ -1,81 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Packet Viewer</title>
-    <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-    <form action="/set_data" method="post">
-        <input type="text" name="data">
-        <input type="submit" value="分析">
-    </form>
-    <table class="tg">
-        <thead>
-          <tr>
-            <th class="tg-c3ow" colspan="4">32bit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="tg-c3ow">バージョン(4)</td>
-            <td class="tg-c3ow">ヘッダ長(4)</td>
-            <td class="tg-c3ow">サービスタイプ(8)</td>
-            <td class="tg-c3ow">パケット長(16)</td>
-          </tr>
-          <tr>
-            <td class="tg-c3ow"></td>
-            <td class="tg-c3ow"></td>
-            <td class="tg-c3ow"></td>
-            <td class="tg-c3ow"></td>
-          </tr>
-          <tr>
-            <td class="tg-c3ow" colspan="3">識別子(16)</td>
-            <td class="tg-c3ow">フラグ(16)</td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="3"></td>
-            <td class="tg-baqh"></td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="2">TTL(8)</td>
-            <td class="tg-baqh">プロトコル番号(8)</td>
-            <td class="tg-baqh">ヘッダチェックサム(16)</td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="2"></td>
-            <td class="tg-baqh"></td>
-            <td class="tg-baqh"></td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="4">送信元IPアドレス(32)</td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="4"></td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="4">宛先IPアドレス(32)</td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="4"></td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="4">オプション(32×n)</td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="4"></td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="4">データ本体</td>
-          </tr>
-          <tr>
-            <td class="tg-baqh" colspan="4"></td>
-          </tr>
-        </tbody>
-    </table>
-    <script src="/assets/js/index.js"></script>
-</body>
-</html>
+<form action="/set_data" method="post">
+    <input type="text" name="data">
+    <input type="submit" value="分析">
+</form>
+<table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-c3ow" colspan="4">32bit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-c3ow">バージョン(4)</td>
+        <td class="tg-c3ow">ヘッダ長(4)</td>
+        <td class="tg-c3ow">サービスタイプ(8)</td>
+        <td class="tg-c3ow">パケット長(16)</td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow"></td>
+        <td class="tg-c3ow"></td>
+        <td class="tg-c3ow"></td>
+        <td class="tg-c3ow"></td>
+      </tr>
+      <tr>
+        <td class="tg-c3ow" colspan="3">識別子(16)</td>
+        <td class="tg-c3ow">フラグ(16)</td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="3"></td>
+        <td class="tg-baqh"></td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="2">TTL(8)</td>
+        <td class="tg-baqh">プロトコル番号(8)</td>
+        <td class="tg-baqh">ヘッダチェックサム(16)</td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="2"></td>
+        <td class="tg-baqh"></td>
+        <td class="tg-baqh"></td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="4">送信元IPアドレス(32)</td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="4"></td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="4">宛先IPアドレス(32)</td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="4"></td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="4">オプション(32×n)</td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="4"></td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="4">データ本体</td>
+      </tr>
+      <tr>
+        <td class="tg-baqh" colspan="4"></td>
+      </tr>
+    </tbody>
+</table>
+    

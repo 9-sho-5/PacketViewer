@@ -82,6 +82,7 @@ GEM
       rake (>= 0.8.1)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    simple_capture (0.1.0)
     sinatra (3.0.3)
       mustermann (~> 3.0)
       rack (~> 2.2, >= 2.2.4)
@@ -123,6 +124,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   ruby-debug-ide
+  simple_capture
   sinatra
   sinatra-activerecord
   sinatra-contrib
