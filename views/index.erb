@@ -3,6 +3,8 @@
     <input type="submit" value="分析">
 </form>
 
+<p>入力データ：<%= @input %></p>
+
 <table class="tg">
   <thead>
     <tr>
@@ -17,18 +19,18 @@
       <td class="tg-c3ow">パケット長(16)</td>
     </tr>
     <tr>
-      <td class="tg-c3ow"><%= @data["version"] %></td>
-      <td class="tg-c3ow"><%= @data["length"] %></td>
-      <td class="tg-c3ow"><%= @data["service_type"] %></td>
-      <td class="tg-c3ow"><%= @data["packet_length"] %></td>
+      <td class="tg-c3ow"><%= @res[:version] %></td>
+      <td class="tg-c3ow"><%= @res[:length] %></td>
+      <td class="tg-c3ow"><%= @res[:service_type] %></td>
+      <td class="tg-c3ow"><%= @res[:packet_length] %></td>
     </tr>
     <tr>
       <td class="tg-c3ow" colspan="3">識別子(16)</td>
       <td class="tg-c3ow">フラグ(16)</td>
     </tr>
     <tr>
-      <td class="tg-baqh" colspan="3"><%= @data["identificatipn"] %></td>
-      <td class="tg-baqh"><%= @data["flagment"] %></td>
+      <td class="tg-baqh" colspan="3"><%= @res[:identificatipn] %></td>
+      <td class="tg-baqh"><%= @res[:flagment] %></td>
     </tr>
     <tr>
       <td class="tg-baqh" colspan="2">TTL(8)</td>
@@ -36,33 +38,33 @@
       <td class="tg-baqh">ヘッダチェックサム(16)</td>
     </tr>
     <tr>
-      <td class="tg-baqh" colspan="2"><%= @data["ttl"] %></td>
-      <td class="tg-baqh"><%= @data["transport"] %></td>
-      <td class="tg-baqh"><%= @data["header_checksum"] %></td>
+      <td class="tg-baqh" colspan="2"><%= @res[:ttl] %></td>
+      <td class="tg-baqh"><%= @res[:transport] %></td>
+      <td class="tg-baqh"><%= @res[:header_checksum] %></td>
     </tr>
     <tr>
       <td class="tg-baqh" colspan="4">送信元IPアドレス(32)</td>
     </tr>
     <tr>
-      <td class="tg-baqh" colspan="4"><%= @data["source_ip_address"] %></td>
+      <td class="tg-baqh" colspan="4"><%= @res[:source_ip_address] %></td>
     </tr>
     <tr>
       <td class="tg-baqh" colspan="4">宛先IPアドレス(32)</td>
     </tr>
     <tr>
-      <td class="tg-baqh" colspan="4"><%= @data["destination_ip_address"] %></td>
+      <td class="tg-baqh" colspan="4"><%= @res[:destination_ip_address] %></td>
     </tr>
     <tr>
       <td class="tg-baqh" colspan="4">オプション(32×n)</td>
     </tr>
     <tr>
-      <td class="tg-baqh" colspan="4"><%= @data["options"] %></td>
+      <td class="tg-baqh" colspan="4"><%= @res[:options] %></td>
     </tr>
     <tr>
       <td class="tg-baqh" colspan="4">データ本体</td>
     </tr>
     <tr>
-      <td class="tg-baqh" colspan="4"><%= @data["data"] %></td>
+      <td class="tg-baqh" colspan="4"><%= @res[:data] %></td>
     </tr>
   </tbody>
 </table>
