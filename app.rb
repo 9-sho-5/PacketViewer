@@ -37,7 +37,7 @@ post '/set_data' do
         source_ip_address: data[24, 8],
         destination_ip_address: data[32, 8],
         options: "未対応",
-        data: data[40, 8],
+        data: data[40..-1],
     }
     @input = data
     erb :index
