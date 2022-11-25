@@ -1,4 +1,28 @@
+body{
+    width: 100%;
+    max-width: 1035px;
+    margin: 0 auto;
+}
+form{
+    margin-top: 50px;
+    .input-wrap{
+        display: flex;
+        gap: 15px;
+    }
+    input{
+        display: block;
+        width: 500px;
+        &[type="submit"]{
+            width: 100px;
+        }
+    }
+}
+p{
+    margin-top: 50px;
+    word-break: break-word;
+}
 .tg  {
+    margin: 50px auto;
     border-collapse:collapse;
     border-spacing:0;
     td{
