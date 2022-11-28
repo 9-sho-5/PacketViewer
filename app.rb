@@ -1,9 +1,14 @@
+# Gemfile内の依存関係のrequire
 require 'bundler/setup'
 Bundler.require
+# コード変更するたびに、サーバーの再起動なしに反映
 require 'sinatra/reloader' if development?
 
+# url '/' method=getの処理
 get '/' do
-    @v_flag = 6
+    # 初回の表示tableは、ipv4にするためflagを4にセット
+    @v_flag = 4
+    # ipv4の初期値設定
     @res_v4 = {
         version: 0,
         length: 0,
@@ -20,6 +25,7 @@ get '/' do
         padding: 0,
         data: 0,
     }
+     # ipv6の初期値設定
     @res_v6 = {
         version: 0,
         trafic: 0,
@@ -31,13 +37,20 @@ get '/' do
         destination_address: 0,
         data: 0,
     }
+    # erbファイルの表示
     erb :index
 end
 
+# url '/set_data' method=postの処理
 post '/set_data' do
+    #formからのデータ取得
     data = params["data"]
+    # check_v関数を使用して、データのipバージョンを確認
     check_v(data)
+    # ipv4の時
     if @v_flag == 4
+        # 取得したparamsの値の先頭から順にデータ格納
+        # ない場合は、nullを設定する
         @res_v4 = {
             version: data[0, 1] != "" ? data[0, 1] : "null",
             length: data[1, 1] != "" ? data[1, 1] : "null",
@@ -53,7 +66,10 @@ post '/set_data' do
             options: "未対応",
             data: data[40..-1] != "" ? data[40..-1] : "null",
         }
+    #ipv6の時
     elsif @v_flag == 6
+        # 取得したparamsの値の先頭から順にデータ格納
+        # ない場合は、nullを設定する
         @res_v6 = {
             version: data[0, 1] != "" ? data[0, 1] : "null",
             trafic: data[1, 2] != "" ? data[1, 2] : "null",
@@ -66,16 +82,21 @@ post '/set_data' do
             data: data[80..-1] != "" ? data[80..-1] : "null",
         }
     end
+    # 入力データをインスタンス変数に格納
     @input = data
+    # erbファイルの表示
     erb :index
 end
 
+# ipバージョンの確認関数
 def check_v(data)
-    puts data[0, 1]
+    # ipバージョンが4の時、flagを4に設定
     if data[0, 1].to_i == 4
         @v_flag = 4
+    # ipバージョンが4の時、flagを4に設定
     elsif data[0, 1].to_i == 6
         @v_flag = 6
+    # その他、flagを-1に設定
     else
         @v_flag = -1
     end
