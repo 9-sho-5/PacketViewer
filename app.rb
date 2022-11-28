@@ -8,7 +8,7 @@ require 'sinatra/reloader' if development?
 get '/' do
     # 初回の表示tableは、ipv4にするためflagを4にセット
     @v_flag = 4
-    # ipv4の初期値設定
+    # ipv4の初期値をインスタンス変数に設定
     @res_v4 = {
         version: 0,
         length: 0,
@@ -25,7 +25,7 @@ get '/' do
         padding: 0,
         data: 0,
     }
-     # ipv6の初期値設定
+     # ipv6の初期値をインスタンス変数に設定
     @res_v6 = {
         version: 0,
         trafic: 0,
@@ -49,7 +49,7 @@ post '/set_data' do
     check_v(data)
     # ipv4の時
     if @v_flag == 4
-        # 取得したparamsの値の先頭から順にデータ格納
+        # 取得したparamsの値の先頭から順にインスタンス変数へデータ格納
         # ない場合は、nullを設定する
         @res_v4 = {
             version: data[0, 1] != "" ? data[0, 1] : "null",
@@ -68,7 +68,7 @@ post '/set_data' do
         }
     #ipv6の時
     elsif @v_flag == 6
-        # 取得したparamsの値の先頭から順にデータ格納
+        # 取得したparamsの値の先頭から順にインスタンス変数へデータ格納
         # ない場合は、nullを設定する
         @res_v6 = {
             version: data[0, 1] != "" ? data[0, 1] : "null",
