@@ -33,6 +33,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    ipaddress (0.8.3)
     json (2.6.2)
     method_source (1.0.0)
     mime-types (3.4.1)
@@ -82,7 +83,6 @@ GEM
       rake (>= 0.8.1)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
-    simple_capture (0.1.0)
     sinatra (3.0.3)
       mustermann (~> 3.0)
       rack (~> 2.2, >= 2.2.4)
@@ -117,6 +117,7 @@ DEPENDENCIES
   debase
   dotenv
   fastri
+  ipaddress
   pg (= 0.21.0)
   pry
   rake
@@ -124,7 +125,6 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   ruby-debug-ide
-  simple_capture
   sinatra
   sinatra-activerecord
   sinatra-contrib

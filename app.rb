@@ -3,6 +3,7 @@ require 'bundler/setup'
 Bundler.require
 # コード変更するたびに、サーバーの再起動なしに反映
 require 'sinatra/reloader' if development?
+require 'ipaddress'
 
 # url '/' method=getの処理
 get '/' do
@@ -20,7 +21,9 @@ get '/' do
         transport: 0,
         header_checksum: 0,
         source_ip_address: 0,
+        source_ip_address_formed: 0,
         destination_ip_address: 0,
+        destination_ip_address_formed: 0,
         options: 0,
         padding: 0,
         data: 0,
@@ -62,7 +65,9 @@ post '/set_data' do
             transport: data[18, 2] != "" ? data[18, 2] : "null",
             header_checksum: data[20, 4] != "" ? data[20, 4] : "null",
             source_ip_address: data[24, 8] != "" ? data[24, 8] : "null",
+            source_ip_address_formed: data[24, 8] != "" ? IPAddress(Integer("0x"+data[24, 8])).to_s : "null",
             destination_ip_address: data[32, 8] != "" ? data[32, 8] : "null",
+            destination_ip_address_formed: data[32, 8] != "" ? IPAddress(Integer("0x"+data[32, 8])).to_s : "null",
             options: "未対応",
             data: data[40..-1] != "" ? data[40..-1] : "null",
         }
