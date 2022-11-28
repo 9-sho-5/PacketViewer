@@ -3,7 +3,7 @@
   pathを/set_data、methodをpost設定
 %>
 <form action="/set_data" method="post">
-  <span>データ入力</span>
+  <span>パケットデータデータ(16進数)</span>
   <div class="input-wrap">
     <input type="text" name="data">
     <input type="submit" value="分析">
@@ -11,7 +11,7 @@
 </form>
 
 <%# 入力データを持つインスタンス変数を表示 %>
-<p>入力データ：<%= @input %></p>
+<p>パケットデータデータ(16進数)：<%= @input %></p>
 
 <%# ipv4の時のtableを表示 %>
 <% if @v_flag == 4 %>
