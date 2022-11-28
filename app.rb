@@ -76,7 +76,7 @@ post '/set_data' do
         # 取得したparamsの値の先頭から順にインスタンス変数へデータ格納
         # ない場合は、nullを設定する
         source_address_formed = formed_v6(data[16, 32])
-        destination_address_formed = formed_v6(data[16, 32])
+        destination_address_formed = formed_v6(data[48, 32])
         @res_v6 = {
             version: data[0, 1] != "" ? data[0, 1] : "null",
             trafic: data[1, 2] != "" ? data[1, 2] : "null",
