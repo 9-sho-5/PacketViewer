@@ -75,6 +75,8 @@ post '/set_data' do
     elsif @v_flag == 6
         # 取得したparamsの値の先頭から順にインスタンス変数へデータ格納
         # ない場合は、nullを設定する
+        source_address_formed = formed_v6(data[16, 32])
+        destination_address_formed = formed_v6(data[16, 32])
         @res_v6 = {
             version: data[0, 1] != "" ? data[0, 1] : "null",
             trafic: data[1, 2] != "" ? data[1, 2] : "null",
@@ -82,8 +84,8 @@ post '/set_data' do
             payload_length: data[8, 4] != "" ? data[8, 4] : "null",
             next_header: data[12, 2] != "" ? data[12, 2] : "null",
             hop_limit: data[14, 2] != "" ? data[14, 2] : "null",
-            source_address: data[16, 32] != "" ? data[16, 32] : "null",
-            destination_address: data[48, 32] != "" ? data[48, 32] : "null",
+            source_address_formed: data[16, 32] != "" ? source_address_formed : "null",
+            destination_address_formed: data[48, 32] != "" ? destination_address_formed : "null",
             data: data[80..-1] != "" ? data[80..-1] : "null",
         }
     end
@@ -105,4 +107,12 @@ def check_v(data)
     else
         @v_flag = -1
     end
+end
+
+# ipv6の16進数をipv6アドレスに変換
+def formed_v6(data)
+    for i in 0..6 do
+        data.insert(4*i + 4+i, ":")
+    end
+    return data
 end
