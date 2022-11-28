@@ -114,5 +114,5 @@ def formed_v6(data)
     for i in 0..6 do
         data.insert(4*i + 4+i, ":")
     end
-    return data
+    return IPAddress::IPv6.compress data
 end
