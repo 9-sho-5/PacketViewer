@@ -3,6 +3,7 @@ require 'bundler/setup'
 Bundler.require
 # コード変更するたびに、サーバーの再起動なしに反映
 require 'sinatra/reloader' if development?
+# ipaddress 変換用のgemのrequire
 require 'ipaddress'
 
 # url '/' method=getの処理
@@ -73,10 +74,11 @@ post '/set_data' do
         }
     #ipv6の時
     elsif @v_flag == 6
-        # 取得したparamsの値の先頭から順にインスタンス変数へデータ格納
-        # ない場合は、nullを設定する
+        # formed_v6関数を使用してipv6アドレスに変換する
         source_address_formed = formed_v6(data[16, 32])
         destination_address_formed = formed_v6(data[48, 32])
+        # 取得したparamsの値の先頭から順にインスタンス変数へデータ格納
+        # ない場合は、nullを設定する
         @res_v6 = {
             version: data[0, 1] != "" ? data[0, 1] : "null",
             trafic: data[1, 2] != "" ? data[1, 2] : "null",
@@ -112,7 +114,9 @@ end
 # ipv6の16進数をipv6アドレスに変換
 def formed_v6(data)
     for i in 0..6 do
+        # 4bitごとに:を追加
         data.insert(4*i + 4+i, ":")
     end
+    # ipv6アドレスを圧縮してreturn
     return IPAddress::IPv6.compress data
 end
